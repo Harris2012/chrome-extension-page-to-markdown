@@ -1,0 +1,29 @@
+{
+    "manifest_version": 2,
+    "name": "Savory Chrome Extension",
+    "version": "1.0.0",
+    "description": "To collect web site url",
+    "browser_action": {
+        "default_icon": "image/icon_50_50.jpg",
+        "default_popup": "popup.html"
+    },
+    "background": {
+        "scripts": [
+            "js/background.js"
+        ]
+    },
+    "content_scripts": [{
+        "matches": [
+            "https://www.cnblogs.com/*"
+        ],
+        "js": [
+            "js/jquery-1.10.2.min.js",
+            "js/content_script.js"
+        ]
+    }],
+    "permissions": [
+        "tabs",
+        "activeTab",
+        "http://fav.cn/"
+    ]
+}
