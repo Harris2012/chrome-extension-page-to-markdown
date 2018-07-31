@@ -1,16 +1,11 @@
 {
     "manifest_version": 2,
-    "name": "Savory Chrome Extension",
+    "name": "Page To MarkDown",
     "version": "1.0.0",
-    "description": "To collect web site url",
+    "description": "To save cnblogs page as markdown",
     "browser_action": {
         "default_icon": "image/icon_50_50.jpg",
         "default_popup": "popup.html"
-    },
-    "background": {
-        "scripts": [
-            "js/background.js"
-        ]
     },
     "content_scripts": [{
         "matches": [
@@ -23,7 +18,6 @@
     }],
     "permissions": [
         "tabs",
-        "activeTab",
-        "http://fav.cn/"
+        "activeTab"
     ]
 }

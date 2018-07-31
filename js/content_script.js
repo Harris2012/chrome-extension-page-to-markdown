@@ -97,7 +97,7 @@ function process_div(element) {
 
 function on_message(request, sender, callback) {
 
-    if (sender.id != "plehdpakebmllgpmkicnmiepmlkbaelb") {
+    if (request.requestFrom != "page-to-markdown") {
         return;
     }
 
@@ -110,20 +110,6 @@ function on_message(request, sender, callback) {
     postBodyDOM.childNodes.forEach(process);
 
     callback({ blogBody: blogBody });
-
-    //console.log(blogBody);
-    //var html = document.body.innerHTML;
-    //console.log(sender.tab ? "from a content script:" + sender.tab.url : "from the extension");
-    //if (request.greeting == "hello") {
-    //    callback({ farewell: "goodbye" });
-    //}
 }
 
 chrome.runtime.onMessage.addListener(on_message);
-
-// chrome.tabs.onMessage.addListener(function (request, sender, sendMessage) {
-//     if (request.greeting == "hello")
-//         sendMessage(html);
-//     else
-//         sendMessage("FUCK OFF"); // snub them.
-// });
