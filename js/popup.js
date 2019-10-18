@@ -1,9 +1,4 @@
-﻿function start(popup_callback) {
-
-    get_current_tab(get_current_tab_callback, popup_callback);
-}
-
-function get_current_tab(get_current_tab_callback, popup_callback) {
+﻿function get_current_tab(get_current_tab_callback, popup_callback) {
     var queryInfo = { active: true, currentWindow: true };
 
     chrome.tabs.query(queryInfo, function(tabs) {
@@ -21,9 +16,14 @@ function get_current_tab_callback(current, popup_callback) {
 
 function popup_callback(response) {
 
+    if (response == null) {
+        $('#markdown').text('response is null.');
+        return;
+    }
+
     $('#markdown').text(response.blogBody);
 }
 
 $(function() {
-    start(popup_callback);
+    get_current_tab(get_current_tab_callback, popup_callback);
 })
